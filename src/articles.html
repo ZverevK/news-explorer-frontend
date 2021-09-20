@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="html, css, news, exploper">
+  <meta name="description" content="Сервис для поиска новостей">
+  <meta name="author" content="Катя Ромашкина">
+  <link rel="icon" href="../<%=require('./images/favicon.png').default%>">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.articles.css %>">
+  <title>Сервис для поиска новостей</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="root">
+      <header class="header">
+        <div class="header__container">
+          <a href="../index.html" class="logo">NewsExplorer</a>
+          <img src="../<%=require('./images/menu-dark.png').default%>" alt="Меню" class="header__menu-icon">
+          <div class="overlay">
+            <template id="menu-authorized-template">
+              <nav class="menu">
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <a href="../index.html" class="menu__link">Главная</a>
+                  </li>
+                </ul>
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <a href="#" class="menu__link">Сохранённые статьи</a>
+                  </li>
+                </ul>
+                <button type="submit" name="submit" class="button button_logout button_mobile">
+                  <span class="button__name"></span>
+                  <i class="icon"></i>
+                </button>
+              </nav>
+            </template>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="articles root__articles">
+          <div class="articles__container">
+            <p class="articles__text">Сохранённые статьи</p>
+            <h1 class="title"></h1>
+            <p class="articles__paragraph">По ключевым словам:
+              <span class="articles__span"></span>
+            </p>
+          </div>
+        </section>
+
+        <section class="save-articles">
+          <div class="save-articles__container">
+            <div class="cards root__cards">
+              <template id="card-template">
+                <article class="card">
+                  <div class="card__save-container">
+                    <i class="card__icon"></i>
+                    <span class="card__notification card__notification_medium"></span>
+                  </div>
+                  <a href="#" target="_blank" class="card__link">
+                    <img class="card__image" src="" alt="Фото статьи">
+                    <p class="card__tag"></p>
+                    <div class="card__content">
+                      <p class="card__date"></p>
+                      <h3 class="card__title"></h3>
+                      <p class="card__text"></p>
+                    </div>
+                    <p class="card__source"></p>
+                  </a>
+                </article>
+              </template>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer root__footer">
+        <p class="footer__text">&copy; 2020 Supersite, Powered by News API</p>
+        <nav class="menu footer__menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="../index.html" class="menu__link footer__link">Главная</a>
+            </li>
+            <li class="menu__item">
+              <a href="https://praktikum.yandex.ru" target="_blank" class="menu__link footer__link">Яндекс.Практикум</a>
+            </li>
+          </ul>
+          <div class="footer__social">
+            <a href="https://github.com/romcath" target="_blank" class="footer__icon footer__icon_gh"></a>
+            <a href="https://www.facebook.com/" target="_blank" class="footer__icon footer__icon_fb"></a>
+          </div>
+        </nav>
+      </footer>
+
+    </div>
+  </div>
+  <script type="module" src="<%= htmlWebpackPlugin.files.chunks.articles.entry %>"></script>
+</body>
+</html>
